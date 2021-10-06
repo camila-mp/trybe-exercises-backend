@@ -1,0 +1,23 @@
+// 4 -Retorne o total de super-heróis com até 1.80m.
+use('class')
+db.superheroes.count({"aspects.height": { $lte: 180 } })
+
+// 5 - Selecione um super-herói com 2.00m ou mais de altura.
+use('class')
+db.superheroes.findOne({ "aspects.height": { $gte: 200 } })
+
+// 6 -  Retorne o total de super-heróis com 2.00m ou mais.
+use('class')
+db.superheroes.count({ "aspects.height": { $gte: 200 } })
+
+// 7 - Selecione todos os super-heróis que têm olhos verdes.
+use('class')
+db.superheroes.find({"aspects.eyeColor": "green" })
+
+// 8 - Retorne o total de super-heróis com olhos azuis.
+use('class')
+db.superheroes.count({"aspects.eyeColor": "blue" })
+
+// 9 - Utilizando o operador $in , selecione todos os super-heróis com cabelos pretos ou carecas ( "No Hair" ).
+use('class')
+db.superheroes.find({"aspects.hairColor": { $in: [ "No Hair", "Black" ] } })
