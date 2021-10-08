@@ -115,7 +115,6 @@ db.movies.updateMany(
 // 3 - Adicione o campo actor , que deve ser um array com o valor Heath Ledger , ao array de cast em que o campo character seja igual a Coringa.
 
 // [1]
-
 use("class")
 db.movies.updateMany(
   { "cast.character": "Batman" },
@@ -141,3 +140,4 @@ db.movies.updateMany(
     { "cast.$.actor": "Heath Ledger" } 
   }
 )
+// -------------------------------------------
