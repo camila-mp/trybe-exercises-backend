@@ -59,3 +59,25 @@ db.movies.updateMany(
   { $or: [{ title: "Batman" }, { title: "Home Alone" }] },
   { $push: { category: "90's" } }
 )
+
+// Exercício 8: Crie um array de documentos chamado cast para o filme Home Alone com os seguintes dados:
+
+use("class")
+db.movies.updateMany(
+  { title: "Home Alone" },
+  { $set: 
+    { cast: [
+      {
+        "actor": "Macaulay Culkin",
+        "character": "Kevin"
+      },
+      {
+        "actor": "Joe Pesci",
+        "character": "Harry"
+      },
+      {
+        "actor": "Daniel Stern"
+      }]
+    }
+  }
+)
