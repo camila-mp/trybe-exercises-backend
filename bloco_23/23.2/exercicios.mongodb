@@ -95,6 +95,7 @@ db.movies.updateMany(
 )
 
 // Exercício 10: Crie um array de documentos chamado cast para o filme Batman com os seguintes dados:
+// ----Isso pode ser feito de forma mais simples usando o set, igual eu fiz no exercicio 8, porem resolvi deixar registrado como fazer com 'push'----
 
 use("class")
 db.movies.updateMany(
@@ -114,7 +115,10 @@ db.movies.updateMany(
 // 2 - Adicione o campo actor , que deve ser um array com o valor Michael Caine , ao array de cast em que o campo character seja igual a Alfred ;
 // 3 - Adicione o campo actor , que deve ser um array com o valor Heath Ledger , ao array de cast em que o campo character seja igual a Coringa.
 
-// [1]
+// [1] Existem duas opçoes que produzem o mesmo resultado!
+// Tem alguma situaçao mais adequada para cada opçao?
+// Opção A (mais simples, e foi a primeira que eu escolhi)
+
 use("class")
 db.movies.updateMany(
   { "cast.character": "Batman" },
@@ -123,6 +127,17 @@ db.movies.updateMany(
   }
 )
 
+// Opção B
+use("class")
+db.movies.updateMany(
+  { title: "Batman" },
+  { $set: 
+    { "cast.$[elemento].actor": ["Christian Bale"] } 
+  },
+  { arrayFilters: [ { "elemento.character": "Batman" } ] }
+)
+
+// --------------------------------------
 // [2]
 use("class")
 db.movies.updateMany(
@@ -132,6 +147,7 @@ db.movies.updateMany(
   }
 )
 
+// --------------------------------------
 // [3]
 use("class")
 db.movies.updateMany(
@@ -140,4 +156,3 @@ db.movies.updateMany(
     { "cast.$.actor": "Heath Ledger" } 
   }
 )
-// -------------------------------------------
