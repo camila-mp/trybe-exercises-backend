@@ -1,5 +1,5 @@
 const { assert, expect } = require('chai');
-const defineNumber = require('../exercicio1');
+const defineNumber = require('../exercicio1ate3');
 
 describe('o parâmetro passado é menor que zero', () => {
   describe('o retorno', () => {
