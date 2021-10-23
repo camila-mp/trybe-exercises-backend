@@ -17,11 +17,14 @@ async function arrayToFile() {
   try {
     await Promise.all(allFiles);
     const fileNames = ['file1.txt', 'file2.txt', 'file3.txt', 'file4.txt', 'file5.txt']
-    console.log
+    const fileContent = fileNames.map((file) => fs.readFile(file, 'utf8'));
+    const readAllContent = await Promise.all(fileContent);
+    const newContent = readAllContent.join(' ');
+    await fs.writeFile('./fileAll.txt', newContent);
+    console.log('Verifique o conteúdo do arquivo fileAll.txt');
   } catch(err) {
     console.log(err);
   }
-  
-}
+};
 
 arrayToFile();
