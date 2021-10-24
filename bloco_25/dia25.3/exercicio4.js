@@ -4,10 +4,11 @@
 // Garanta que todos os testes escritos no exercício 4 irão passar com sucesso.
 const fs = require('fs');
 
-const writeContent = (fileName, fileContent) => {
-  fs.writeFileSync(`./${fileName}`, fileContent)
-
+function writeContent(fileName, fileContent) {
+  fs.writeFileSync(`./${fileName}`, fileContent);
   return 'ok';
 }
+
+// writeContent('arquivoTeste', 'meu texto para testar a funçao');
 
 module.exports = writeContent;

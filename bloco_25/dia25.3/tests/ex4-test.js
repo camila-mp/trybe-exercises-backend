@@ -13,7 +13,7 @@ const writeContent = require('../exercicio4');
 
 describe('Executa a função writeContent', () => {
   before(() => {
-    sinon.stub(fs, 'writeFileSync');
+    sinon.stub(fs, 'writeFileSync').returns('ok');
   });
   after(() => {
     fs.writeFileSync.restore();
