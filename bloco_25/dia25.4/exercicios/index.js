@@ -21,20 +21,20 @@ app.use(bodyParser.json());
 app.get('/ping', (_req, res) =>  res.json({ message: 'pong' }));
 app.post('/hello', (req, res) => {
   const { name } = req.body;
-  return res.status(200).json({ "message": `Hello, ${name}!` })
+  res.status(200).json({ "message": `Hello, ${name}!` })
 });
 app.post('/greetings', (req, res) => {
   const { name, age } = req.body;
   if(parseInt(age, 10) <= 17) {
     return res.status(401).json({ message: 'Unauthorized' });
   }
-  return res.status(200).json({ message: `Hello, ${name}!` });
+  res.status(200).json({ message: `Hello, ${name}!` });
 })
 
 
 // middleware de erros
 app.use(function (err, req, res, next) {
-  return res.status(500).send(`Algo deu errado! Mensagem: ${err.message}`);
+  res.status(500).send(`Algo deu errado! Mensagem: ${err.message}`);
 });
 
 app.listen(3000, () => console.log('Aplicaçao ouvindo na porta 3000'))
