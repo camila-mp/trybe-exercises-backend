@@ -41,12 +41,12 @@ Busca uma pessoa autora específica, a partir do seu ID
 @param {String} id ID da pessoa autora a ser recuperado
 */
 const findById = async (id) => {
-  if (!ObjectId.isValid(id)) {
+  if (!ObjectId.isValid(id)) { //isValid(id) é uma funçao do ObjectId que verifica se o id e valido
     return null;
   }
 
   const authorData = await connection()
-    .then((db) => db.collection('authors').findOne(new ObjectId(id)));
+    .then((db) => db.collection('authors').findOne(new ObjectId(id))); //ObjectId(id) filtra documentos por _id
 
   if (!authorData) return null;
 
