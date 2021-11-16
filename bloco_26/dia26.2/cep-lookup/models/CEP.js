@@ -3,7 +3,7 @@ const connection = require('./connection');
 const validateCep = /\d{5}-\d{3}/;
 
 const formatCEP = (cep) => {
-  const isCEPvalid = cep.test(validateCep);
+  const isCEPvalid = validateCep.test(cep);
   if(isCEPvalid) {
     return cep;
   }
