@@ -1,7 +1,6 @@
 const connection = require('./connection');
 
 const validateCep = /\d{5}-\d{3}/;
-// const cep = 13501-160
 
 const formatCEP = (cep) => {
   const isCEPvalid = cep.test(validateCep);
@@ -13,3 +12,24 @@ const formatCEP = (cep) => {
   return formatedCEP;
 }
 
+const getNewCEP = ({cep, logradouro, bairro, localidade, uf}) => ({
+  cep: formatCEP(cep),
+  logradouro,
+  bairro,
+  localidade,
+  uf,
+});
+
+const findByCEP = async (cep) => {
+  const modifiedCEP = cep.replace('-', '');
+  const myQuery = 'SELECT cep, logradouro, bairro, localidade, uf FROM ceps WHERE cep = ?';
+  const endereco = await connection.execute(myQuery, [modifiedCEP])
+    .then(([result]) => (result.length ? result[0] : null))
+  
+  if(!endereco) {
+    return null;
+  }
+  return getNewCEP(endereco);
+}
+
+module.exports = { findByCEP };
