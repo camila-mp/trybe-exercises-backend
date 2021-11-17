@@ -14,8 +14,8 @@ const findByCEP = (cep) => {
   if(!endereco) {
     return { error: { code: "notFound", message: "CEP não encontrado" } }
   }
-  //se o cep era valido e foi encontrado, o endereco completo e retornado
-  return endereco
+  //se o cep era valido e foi encontrado, retorna endereco completo
+  return endereco;
 }
 
 module.exports = { findByCEP };
