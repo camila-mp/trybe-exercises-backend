@@ -17,6 +17,4 @@ apiRoutes.post('/api/login', routes.login);
 
 app.use(apiRoutes);
 
-app.listen(PORT, () => console.log(`Conectado na porta ${PORT}`));
-
 module.exports = app;
