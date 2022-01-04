@@ -1,3 +1,4 @@
+node_modules
 bloco_25/dia25.3/node_modules/.package-lock.json
 bloco_25/dia25.3/node_modules/.bin/he
 bloco_25/dia25.3/node_modules/.bin/nanoid
@@ -2178,6 +2179,10 @@ bloco_25/dia25.4/hello-express/node_modules/yallist/LICENSE
 bloco_25/dia25.4/hello-express/node_modules/yallist/package.json
 bloco_25/dia25.4/hello-express/node_modules/yallist/README.md
 bloco_25/dia25.4/hello-express/node_modules/yallist/yallist.js
+bloco_25/dia25.5/.gitignore
+bloco_25/dia25.5/index.js
+bloco_25/dia25.5/package-lock.json
+bloco_25/dia25.5/package.json
 bloco_25/dia25.5/atividade1/node_modules/.package-lock.json
 bloco_25/dia25.5/atividade1/node_modules/.bin/mime
 bloco_25/dia25.5/atividade1/node_modules/accepts/HISTORY.md
